@@ -2,30 +2,32 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      product: {
+      appliance: {
         name: '',
-        detail: ''
+        detail: '',
+        voltade: '',
+        label: ''
       }
     }
   },
   computed: {
-    isNewProduct() {
+    isNewAppliance() {
       return !this.$route.path.includes('edit');
     }
   },
   async created() {
-    if (!this.isNewProduct) {
-      const response = await axios.get(`http://localhost:8000/products/${this.$route.params.id}`);
-      this.product = response.data.data;
+    if (!this.isNewAppliance) {
+      const response = await axios.get(`http://localhost:8000/appliances/${this.$route.params.id}`);
+      this.appliance = response.data.data;
     }
   },
   methods: {
     async submitForm() {
       try {
-        if (this.isNewProduct) {
-          await axios.get('http://localhost:8000/products/create', { params: this.product });
+        if (this.isNewAppliance) {
+          await axios.get('http://localhost:8000/appliances/create', { params: this.appliance });
         } else {
-          await axios.get(`http://localhost:8000/products/${this.$route.params.id}/edit`, { params: this.product });
+          await axios.get(`http://localhost:8000/appliances/${this.$route.params.id}/edit`, { params: this.appliance });
         }
         this.$router.push('/home');
       } catch (error) {

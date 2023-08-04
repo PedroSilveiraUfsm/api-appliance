@@ -1,66 +1,88 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## API-APPLIANCES
 
-## About Laravel
+PROJETO DESENVOLVIDO COM PHP 8.1.6 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+FRAMEWORK LARAVEL 10
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+FRAMEWORK VUEJS 3
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## RECURSOS NECESSÁRIOS
 
-## Learning Laravel
+[Database MySQL - Xampp 3.3.0 ](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.1.17/xampp-windows-x64-8.1.17-0-VS16-installer.exe)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Foi usado o Xampp 3.3.0 para o projeto, mas qualquer banco relacional pode ser utilizado
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+[Composer](https://getcomposer.org/Composer-Setup.exe)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Necessário para instalar as dependências do backend
+- 1º Instalador para windows, adicionar ao PATH para usar os comandos no terminal
+- 2º Após instalado aplicar o comando: composer install 
 
-## Laravel Sponsors
+[Artisan]()
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- Necessário para rodar as aplicações e gerenciar o servidor backend
+- Com o composer instalado, aplicar o comando: composer require artisan
 
-### Premium Partners
+[npm](https://nodejs.org/dist/v18.17.0/node-v18.17.0-x64.msi)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- Gerenciador de pacotes para o frontend. 
 
-## Contributing
+## CRIAR DATABASE
+**dentro do servidor MySQL**
+- Criar base de dados com o comando: CREATE DATABASE db_appliance
+**O arquivo .env está contendo os parâmetros para rodar localmente com as portas padrão**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## PRIMEIROS COMANDOS - BACKEND
+**Para rodar a aplicação backend é necessário aplicar alguns comandos dentro da pasta 'backend'**
+- cd .\backend\ 
 
-## Code of Conduct
+**Instalar dependências**
+- composer install
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Criar tabela para a DB**
+- php artisan migrate
 
-## Security Vulnerabilities
+**Rodar a aplicação localmente**
+- php artisan serve
+* O servidor rodará em [localhost](http://127.0.0.1:8000)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## TESTES DE ROTA
 
-## License
+**Disponibilizado arquivo para importar para cliente de API (Insomnia, Postman)**
+- [ROTAS](./public/Insomnia_2023-08-03.json)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**CREATE**
+curl --request GET \
+  --url 'http://localhost:8000/appliances/create?name=&detail=&voltage=&label='
+
+**GET**
+curl --request GET \
+  --url http://localhost:8000/appliances
+
+**GET ID**
+curl --request GET \
+  --url http://localhost:8000/appliances/1
+
+**UPDATE**
+curl --request GET \
+  --url 'http://localhost:8000/appliances/7/edit?name=&detail=&voltage=&label=
+
+**DELETE**
+curl --request GET \
+  --url http://localhost:8000/appliances/1/delete
+
+
+## PRIMEIROS COMANDOS - FRONTEND
+**Para rodar a aplicação backend é necessário aplicar alguns comandos dentro da pasta 'frontend'**
+- cd .\backend\ 
+
+**Com o gerenciador NPM instalado rodar o comando**
+- npm install
+
+**Para rodar a aplicação frontend localmente**
+- npm run dev
+* O servidor rodará em [localhost](http://localhost:5173)
+
+**OBS - Agora é possível utilizar os recursos em nível de usuário final: CADASTRAR, LER, ALTERTAR E DELETAR (CRUD)**
+**MUITO OBRIGADO E APROVEITE - Pedro Silveira®2023**
