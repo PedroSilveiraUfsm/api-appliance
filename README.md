@@ -80,7 +80,7 @@ curl --request GET \
 
 ## PRIMEIROS COMANDOS - FRONTEND
 **Para rodar a aplicação backend é necessário aplicar alguns comandos dentro da pasta 'frontend'**
-- cd .\backend\ 
+- cd .\frontend\ 
 
 **Com o gerenciador NPM instalado rodar o comando**
 - npm install
