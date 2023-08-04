@@ -13,7 +13,7 @@
         </div>
         <div class="mb-3">
           <label for="voltage" class="form-label">Voltage:</label>
-          <input class="form-control" type="text" id="voltage" v-model="appliance.voltage" required />
+          <input class="form-control" type="text" maxlength="3" id="voltage" v-model="appliance.voltage" required />
         </div>
         <div class="mb-3">
           <label for="label" class="form-label">Label:</label>

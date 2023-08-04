@@ -31,7 +31,8 @@ FRAMEWORK VUEJS 3
 ## CRIAR DATABASE
 **Dentro do servidor MySQL criar base de dados com o comando**
 - CREATE DATABASE db_appliance
-**O arquivo .env está contendo os parâmetros para rodar localmente com as portas padrão**
+
+-**O arquivo .env está contendo os parâmetros para rodar localmente com as portas padrão**
 
 ## PRIMEIROS COMANDOS - BACKEND
 **Para rodar a aplicação backend é necessário aplicar alguns comandos dentro da pasta 'backend'**

@@ -18,7 +18,7 @@
                     <td>{{ appliance.name }}</td>
                     <td>{{ appliance.detail }}</td>
                     <td>{{ appliance.voltage }}V</td>
-                    <td>{{ appliance.label }}V</td>
+                    <td>{{ appliance.label }}</td>
                     <td>
                       <div class="row gap-3">
                         <router-link :to="`/appliances/${appliance.id}`" class="p-2 col border btn btn-primary">View</router-link>
