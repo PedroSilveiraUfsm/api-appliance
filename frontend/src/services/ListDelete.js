@@ -26,7 +26,7 @@ export default {
       try {
         await axios.get(`http://localhost:8000/appliances/${id}/delete`);
         this.appliances = this.appliances.filter(appliance => appliance.id !== id);
-      } catch (error) {
+      } catch (error) {             
         console.error(error);
       }
     }

@@ -23,7 +23,7 @@
                       <div class="row gap-3">
                         <router-link :to="`/appliances/${appliance.id}`" class="p-2 col border btn btn-primary">View</router-link>
                         <router-link :to="`/appliances/${appliance.id}/edit`" class="p-2 col border btn btn-success">Edit</router-link>
-                        <button @click="deleteAppliance(appliance.id)"  class="p-2 col border btn btn-danger">Delete</button>
+                        <button @click="deleteAppliance(appliance.id)" class="p-2 col border btn btn-danger">Delete</button>
                       </div>
                     </td>
                 </tr>
