@@ -79,7 +79,7 @@ curl --request GET \
 
 
 ## PRIMEIROS COMANDOS - FRONTEND
-**Para rodar a aplicação backend é necessário aplicar alguns comandos dentro da pasta 'frontend'**
+**Para rodar a aplicação frontend é necessário aplicar alguns comandos dentro da pasta 'frontend'**
 - cd .\frontend\ 
 
 **Com o gerenciador NPM instalado rodar o comando**
