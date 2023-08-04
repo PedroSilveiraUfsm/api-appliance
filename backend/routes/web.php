@@ -1,10 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProductController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\ApplianceController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +11,16 @@ use Inertia\Inertia;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-|
+|s
 */
 
-Route::get('products', [ProductController::class, 'index'])->name('products.index');
-Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
-Route::get('products/{id}', [ProductController::class, 'show'])->name('products.show');
-Route::get('products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
-Route::get('products/{id}/delete', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::get('/', function () {
+    return '🚀 Backend Started! Api-Appliance';
+});
+
+Route::get('appliances', [ApplianceController::class, 'index'])->name('appliances.index');
+Route::get('appliances/create', [ApplianceController::class, 'create'])->name('appliances.create');
+Route::get('appliances/{id}', [ApplianceController::class, 'show'])->name('appliances.show');
+Route::get('appliances/{id}/edit', [ApplianceController::class, 'edit'])->name('appliances.edit');
+Route::get('appliances/{id}/delete', [ApplianceController::class, 'destroy'])->name('appliances.destroy');
 

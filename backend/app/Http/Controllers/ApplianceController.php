@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Appliance;
 use Exception;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ApplianceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $Appliances = Appliance::all();
         return response()->json([
         "success" => true,
-        "message" => "Product List",
-        "data" => $products
+        "message" => "Appliance List",
+        "data" => $Appliances
         ]);
     }
 
@@ -34,14 +34,16 @@ class ProductController extends Controller
 
         $validator = Validator($input, [
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            'voltage' => 'required',
+            'label' => 'required'
             ]);
 
         if($validator->fails()){
             throw new Exception('Create Error. '. $validator->errors());
         }
 
-        $appliance = Product::create($input);
+        $appliance = Appliance::create($input);
             return response()->json([
             "success" => true,
             "message" => "appliance created successfully.",
@@ -52,12 +54,12 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Appliance  $Appliance
      * @return \Illuminate\Http\Response
      */
     public function show(int $id)
     {
-        $appliance = Product::find($id);
+        $appliance = Appliance::find($id);
 
         return response()->json([
             "success" => true,
@@ -68,20 +70,22 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Appliance  $Appliance
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, int $product)
+    public function edit(Request $request, int $Appliance)
     {
         $input = $request->all();
-        $appliance = Product::find($product);
+        $appliance = Appliance::find($Appliance);
 
         if (is_null($appliance)) {
             throw new Exception('appliance not found.');
         }
         $validator = Validator($input, [
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            'voltage' => 'required',
+            'label' => 'required'
             ]);
         if($validator->fails()){
             throw new Exception('Validation Error.' . $validator->errors());
@@ -89,6 +93,8 @@ class ProductController extends Controller
 
         $appliance->name = $input['name'];
         $appliance->detail = $input['detail'];
+        $appliance->voltage = $input['voltage'];
+        $appliance->label = $input['label'];
         $appliance->save();
         return response()->json([
             "success" => true,
@@ -102,9 +108,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(int $product)
+    public function destroy(int $Appliance)
     {
-        $appliance = Product::find($product);
+        $appliance = Appliance::find($Appliance);
 
         if (is_null($appliance)) {
             throw new Exception('appliance not found.');
@@ -114,7 +120,7 @@ class ProductController extends Controller
 
         return response()->json([
             "success" => true,
-            "message" => "Product nro:". $product ." deleted successfully.",
+            "message" => "Appliance nro:". $Appliance ." deleted successfully.",
         ]);
     }
 }

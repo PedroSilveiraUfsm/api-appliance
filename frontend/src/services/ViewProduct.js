@@ -2,13 +2,13 @@ import axios from 'axios';
 export default {
 data() {
     return {
-    product: {}
+    appliance: {}
     }
 },
 async created() {
     try {
-    const response = await axios.get(`http://localhost:8000/products/${this.$route.params.id}`);
-    this.product = response.data.data;
+    const response = await axios.get(`http://localhost:8000/appliances/${this.$route.params.id}`);
+    this.appliance = response.data.data;
     } catch (error) {
     console.error(error);
     }
