@@ -8,7 +8,7 @@
           <input class="form-control" type="text" id="name" v-model="appliance.name" required />
         </div>
         <div class="mb-3">
-          <label for="detail" class="form-label">Description:</label>
+          <label for="detail" class="form-label">Detail:</label>
           <textarea class="form-control" id="detail" v-model="appliance.detail" required></textarea>
         </div>
         <div class="mb-3">
